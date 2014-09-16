@@ -1,8 +1,9 @@
+require 'rspec'
 require 'zombie'
 
-RSpec.describe Zombie do
-  it "should honk" do
+describe Zombie do
+  it "should moan about brains" do
     d = Zombie.new
-    expect(d.brains).to eq('braaaaaaaaaaaiiiiinnnnnnnnnns')
+    expect(d.say).to eq('braaaaaaaaaaaiiiiinnnnnnnnnns')
   end
 end

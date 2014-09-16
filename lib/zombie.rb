@@ -1,5 +1,5 @@
 class Zombie
-    def brains
+    def say
         "braaaaaaaaaaaiiiiinnnnnnnnnns"
     end
 end
