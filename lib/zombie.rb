@@ -1,5 +1,5 @@
 class Zombie
-    def say
-        "braaaaaaaaaaaiiiiinnnnnnnnnns"
-    end
+  def say
+    "braaaaaaaaaaaiiiiinnnnnnnnnns"
+  end
 end
