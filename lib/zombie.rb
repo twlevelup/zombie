@@ -1,4 +1,6 @@
-class Zombie
+require "object"
+
+class Zombie < Object
   def say
     "braaaaaaaaaaaiiiiinnnnnnnnnns"
   end

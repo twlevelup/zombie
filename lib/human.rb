@@ -1,6 +1,6 @@
-class Human
-  attr_accessor :x, :y # current position of a human
+require "object"
 
+class Human < Object
   def say
     "Hello, there good sir"
   end
