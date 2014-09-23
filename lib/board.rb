@@ -1,6 +1,7 @@
 class Board
   def initialize(size)
     @grid = Array.new(size) { Array.new(size) }
+    @size = size
   end
 
   def put(x, y, value)
