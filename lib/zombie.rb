@@ -1,25 +1,28 @@
 require "object"
 
 class Zombie < Object
-  attr_accessor :x, :y
+	attr_accessor :x, :y
 
-  def initialize(x,y)
-  	@x = x
-  	@y = y
-  end
+	def initialize(x,y)
+		@x = x
+		@y = y
+	end
 
-  def say
-    "braaaaaaaaaaaiiiiinnnnnnnnnns"
-  end
+	def say
+		"braaaaaaaaaaaiiiiinnnnnnnnnns"
+	end
 
-  def move
-  	original_x = x
-  	original_y = y
-  	
-  	loop do
-  		@x = @x + Random.new.rand(-1..1)
-  		@y = @y + Random.new.rand(-1..1)
-  		break if @x != original_x or @y != original_y
-  	end
-  end
+	def move(coord_list)
+
+		if coord_list.size > 0
+			r = rand(coord_list.size)
+			
+			@x = coord_list[r][0]
+			@y = coord_list[r][1]
+
+		end
+
+	end
 end
+
+# 1,1 - 2,1 0,1 1,0 1,2
