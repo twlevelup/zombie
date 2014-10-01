@@ -33,8 +33,4 @@ class Board
   def start_y
     0 # always zero
   end
-
-  def delete_me
-    0
-  end
 end
