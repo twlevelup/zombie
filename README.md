@@ -32,3 +32,7 @@ need to include the `$ ` when running the command_
 ### Handy Commands
 
 * `$ bundle rake -T`
+
+### Guard
+
+Simply run `guard` from within a terminal and it will watch the lib/ and spec/ directories. On file changes (aka save) it will run the respective tests for the file that was changed. This guarantees instant feedback. Now go forth and write tests.
