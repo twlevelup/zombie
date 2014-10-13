@@ -1,5 +1,6 @@
 require "spec_helper"
 require "board"
+require "human"
 
 describe Board do
   let(:b1) { Board.new(5) }
