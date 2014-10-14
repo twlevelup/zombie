@@ -1,8 +1,11 @@
 require "rspec"
+require "main"
 
 describe "Main" do
-  it "should print zombie's location" do
-    output = `ruby lib/main.rb`
-    expect(output).to eq("Zombies are located at\n")
+  it "should put 4 zombies on a board" do
+    main = Main.new
+
+    expect(main.place_zombies).to eq( [Point.new(9,9), Point.new(9,9), Point.new(9,9), Point.new(9,9)])
   end
+
 end
