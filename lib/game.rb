@@ -1,7 +1,4 @@
 class Game
-	def intialize
-	end
-
 	def start_game
 		human = Human.new
 		board = Board.new(5)
