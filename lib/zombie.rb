@@ -21,7 +21,7 @@ class Zombie
 			return Direction::DOWN
 		elsif r == 3 then
 			return Direction::LEFT
-		elsif r == 4 then
+		else
 			return Direction::RIGHT
 		end
 	end
