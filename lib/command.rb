@@ -9,4 +9,8 @@ class Command
   def run
     @action.call
   end
+
+  def ==(other)
+    self.name == other.name
+  end
 end

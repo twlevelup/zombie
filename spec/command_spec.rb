@@ -10,6 +10,10 @@ describe Command do
       expect(@command.name).to eq 'A name'
     end
 
+    it 'will == a command with the same name' do
+      expect(Command.new('command_a', nil)).to eq Command.new('command_a', nil)
+    end
+
     describe 'when run' do
       it 'will call the proc' do
         expect(@command.run).to eq 'proc was run'
