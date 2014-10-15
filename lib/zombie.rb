@@ -6,10 +6,11 @@ class Zombie
 		"braaaaaaaaaaaiiiiinnnnnnnnnns"
 	end
 
-	def gen_direction
+	def gen_direction(r = rand(4))
 
-		
-		r = rand(4)
+		# if r == nil then
+		# 	r = rand(4)
+		# end
 			
 		# 	@point.x=coord_list[r][0]
 		# 	@point.y=coord_list[r][1]
