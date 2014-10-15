@@ -14,4 +14,8 @@ class Commands
   def parse(string)
     @commands.select {|command| command.name.downcase == string.downcase}.first
   end
+
+  def to_s
+    "Available commands: #{ @commands.map(&:name).join(", ") }"
+  end
 end

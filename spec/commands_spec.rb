@@ -30,4 +30,10 @@ describe Commands do
       expect(@commands.parse('not here')).to eq nil
     end
   end
+
+  describe 'when printing out commands as a string' do
+    it 'should print commands out in list order' do
+      expect(@commands.to_s).to eq 'Available commands: a_command, b_command, c_command'
+    end
+  end
 end
