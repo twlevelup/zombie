@@ -1,29 +1,28 @@
 require 'direction'
 
-class Zombie	
+class Zombie
+  def say
+    "braaaaaaaaaaaiiiiinnnnnnnnnns"
+  end
 
-	def say
-		"braaaaaaaaaaaiiiiinnnnnnnnnns"
-	end
+  def gen_direction(r = rand(4))
 
-	def gen_direction(r = rand(4))
+    # if r == nil then
+    #   r = rand(4)
+    # end
 
-		# if r == nil then
-		# 	r = rand(4)
-		# end
-			
-		# 	@point.x=coord_list[r][0]
-		# 	@point.y=coord_list[r][1]
+    #   @point.x=coord_list[r][0]
+    #   @point.y=coord_list[r][1]
 
-		# end
-		if r == 1 then
-			return Direction::UP
-		elsif r == 2 then
-			return Direction::DOWN
-		elsif r == 3 then
-			return Direction::LEFT
-		else
-			return Direction::RIGHT
-		end
-	end
+    # end
+    if r == 1 then
+      return Direction::UP
+    elsif r == 2 then
+      return Direction::DOWN
+    elsif r == 3 then
+      return Direction::LEFT
+    else
+      return Direction::RIGHT
+    end
+  end
 end
