@@ -10,4 +10,9 @@ class Point
   def ==(other)
     other.x == @x && other.y == @y
   end
+
+  # to string
+  def to_s
+    "(#{@x}, #{@y})"
+  end
 end
