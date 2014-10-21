@@ -5,20 +5,10 @@ require "board"
 require "point"
 
 describe Game do
-  it 'should output human position' do
-    g = Game.new
-    g.start_game
-  end
-
   describe 'on commands execution' do
     before(:each) do
-      @game = Game.new
-      @game.human = Human.new
-      @game.board = Board.new(10)
       @p = Point.new(4, 4)
-      @game.human.board = @game.board
-      @game.board.put(@p, @game.human)
-      @game.create_commands
+      @game = Game.new(@p)
     end
 
     it 'should move a human up' do
@@ -50,10 +40,8 @@ describe Game do
     end
 
     it 'should print illegal direction error' do
-      @game.human = Human.new
-      @game.board.put(Point.new(0, 0), @game.human)
-      @game.human.board = @game.board
-      expect { @game.exec_command('up') }.to output(/Illegal direction/).to_stdout
+      game = Game.new(Point.new(0, 0))
+      expect { game.exec_command('up') }.to output(/Illegal direction/).to_stdout
     end
   end
 end

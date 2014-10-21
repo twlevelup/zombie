@@ -1,5 +1,5 @@
-require "point"
-require "direction"
+require_relative "point"
+require_relative "direction"
 
 class Board
   attr_reader :size # size of the board (width == height)

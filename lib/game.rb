@@ -1,22 +1,20 @@
-require "commands"
-require "command"
-require "human"
-require "board"
-require "point"
-require "direction"
+require_relative "commands"
+require_relative "command"
+require_relative "human"
+require_relative "board"
+require_relative "point"
+require_relative "direction"
 
 class Game
-  attr_accessor :human
-  attr_accessor :board
+  attr_reader :human
+  attr_reader :board
 
-  def start_game
-    human = Human.new
-    board = Board.new(5)
-    humanStartPoint = Point.new(0,0)
-    board.put(humanStartPoint, human)
-
-    humanPos = board.find(human)
-    puts "Human position is ( #{humanPos.x} , #{humanPos.y} )"
+  def initialize(human_starting_point)
+    @human = Human.new
+    @board = Board.new(10)
+    @board.put(human_starting_point, @human)
+    @human.board = @board
+    create_commands
   end
 
   def create_commands
@@ -39,4 +37,12 @@ class Game
       puts 'Unknown command'
     end
   end
+
+  # :nocov:
+  def game_loop
+    command = gets.chomp
+    exec_command(command)
+    game_loop
+  end
+  # :nocov:
 end
