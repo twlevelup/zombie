@@ -20,16 +20,16 @@ describe Human do
     human.move(Direction::RIGHT)
     expect(board.find(human)).to eq Point.new(1, 0)
 
-    # move down
-    human.move(Direction::DOWN)
+    # move up
+    human.move(Direction::UP)
     expect(board.find(human)).to eq Point.new(1, 1)
 
     # move left
     human.move(Direction::LEFT)
     expect(board.find(human)).to eq Point.new(0, 1)
 
-    # move up
-    human.move(Direction::UP)
+    # move down
+    human.move(Direction::DOWN)
     expect(board.find(human)).to eq Point.new(0, 0)
   end
 end

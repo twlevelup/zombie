@@ -9,8 +9,8 @@ describe Board do
   let(:size) { 10 }
   let(:b) { Board.new(size) }
   let(:h) { Human.new }
-  let(:human_point) { Point.new(0, size - 1) }
-  let(:zombie_point) { Point.new(size - 1, 0) }
+  let(:human_point) { Point.new(0, 0) }
+  let(:zombie_point) { Point.new(9, 9) }
 
   it 'should find item\'s point' do
     b.put(human_point, h)
@@ -27,19 +27,19 @@ describe Board do
 
     # move right
     b.move(h, Direction::RIGHT)
-    expect(b.find(h)).to eq Point.new(1, 9)
+    expect(b.find(h)).to eq Point.new(1, 0)
 
     # move up
     b.move(h, Direction::UP)
-    expect(b.find(h)).to eq Point.new(1, 8)
+    expect(b.find(h)).to eq Point.new(1, 1)
 
     # move left
     b.move(h, Direction::LEFT)
-    expect(b.find(h)).to eq Point.new(0, 8)
+    expect(b.find(h)).to eq Point.new(0, 1)
 
     # move down
     b.move(h, Direction::DOWN)
-    expect(b.find(h)).to eq Point.new(0, 9)
+    expect(b.find(h)).to eq Point.new(0, 0)
 
     # validate number of humans
     expect(b.find_all(Human).count).to eq 1
@@ -64,5 +64,12 @@ describe Board do
 
     # find all zombies
     expect(b.find_all(Zombie).count).to eq 4
+  end
+
+  it 'should translate a grid indexes into a game coordinates' do
+    expect(b.translate_point(Point.new(0, 0))).to eq Point.new(0, 9)
+    expect(b.translate_point(Point.new(9, 9))).to eq Point.new(9, 0)
+    expect(b.translate_point(Point.new(0, 9))).to eq Point.new(0, 0)
+    expect(b.translate_point(Point.new(9, 0))).to eq Point.new(9, 9)
   end
 end

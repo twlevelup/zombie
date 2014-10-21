@@ -11,10 +11,12 @@ class Board
   end
 
   def put(point, value)
+    point = translate_point(point)
     @grid[point.y][point.x] << value # append value to a cell
   end
 
   def get(point)
+    point = translate_point(point)
     @grid[point.y][point.x] # returns cell as an array of values
   end
 
@@ -23,7 +25,8 @@ class Board
     @grid.each_with_index do |row, y|
       row.each_with_index do |cell, x|
         cell.each do |item|
-          yield(Point.new(x, y), item)
+          point = translate_point(Point.new(x, y))
+          yield(point, item)
         end
       end
     end
@@ -65,9 +68,9 @@ class Board
 
       case direction
       when Direction::UP
-        y -= 1
-      when Direction::DOWN
         y += 1
+      when Direction::DOWN
+        y -= 1
       when Direction::LEFT
         x -= 1
       when Direction::RIGHT
@@ -80,8 +83,13 @@ class Board
         put(new_point, value) # move to a new cell
         get(point).delete(value) # delete from an old cell
       else
-        fail IndexError, 'Move is not valid' # raise exception
+        fail IndexError, "Move is not valid: #{new_point}" # raise exception
       end
     end
+  end
+
+  # translate point from a grid indexes into a game coordinates
+  def translate_point(point)
+    Point.new(point.x, (@size - 1) - point.y)
   end
 end

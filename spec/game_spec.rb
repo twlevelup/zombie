@@ -5,43 +5,43 @@ require "board"
 require "point"
 
 describe Game do
+  it "should put 4 zombies on a board" do
+    g = Game.new
+    expect(g.place_zombies).to eq( [Point.new(9,9), Point.new(9,9), Point.new(9,9), Point.new(9,9)])
+  end
+
   describe 'on commands execution' do
-    before(:each) do
-      @p = Point.new(4, 4)
-      @game = Game.new(@p)
-    end
+    let(:game) { Game.new }
 
-    it 'should move a human up' do
-      @game.exec_command('up')
-      expect(@game.board.find(@game.human)).to eq Point.new(@p.x, @p.y - 1)
-    end
+    it 'should move a human in the corresponding direction' do
+      # right
+      game.exec_command('right')
+      expect(game.board.find(game.human)).to eq Point.new(1, 0)
 
-    it 'should move a human right' do
-      @game.exec_command('right')
-      expect(@game.board.find(@game.human)).to eq Point.new(@p.x + 1, @p.y)
-    end
+      # up
+      game.exec_command('up')
+      expect(game.board.find(game.human)).to eq Point.new(1, 1)
 
-    it 'should move a human down' do
-      @game.exec_command('down')
-      expect(@game.board.find(@game.human)).to eq Point.new(@p.x, @p.y + 1)
-    end
+      # left
+      game.exec_command('left')
+      expect(game.board.find(game.human)).to eq Point.new(0, 1)
 
-    it 'should move a human left' do
-      @game.exec_command('left')
-      expect(@game.board.find(@game.human)).to eq Point.new(@p.x - 1, @p.y)
+      # down
+      game.exec_command('down')
+      expect(game.board.find(game.human)).to eq Point.new(0, 0)
     end
 
     it "should print a human's position" do
-      expect { @game.exec_command('whereami') }.to output(/(4, 4)/).to_stdout
+      expect { game.exec_command('SHOW MAP') }.to output(/(0, 0)/).to_stdout
+    end
+
+    it 'should print wrong move error' do
+      expect { game.exec_command('down') }.to output(/Wrong move/).to_stdout
+      expect { game.exec_command('left') }.to output(/Wrong move/).to_stdout
     end
 
     it 'should print unknown command error' do
-      expect { @game.exec_command("idon'texist") }.to output(/Unknown command/).to_stdout
-    end
-
-    it 'should print illegal direction error' do
-      game = Game.new(Point.new(0, 0))
-      expect { game.exec_command('up') }.to output(/Illegal direction/).to_stdout
+      expect { game.exec_command("idon'texist") }.to output(/Unknown command/).to_stdout
     end
   end
 end
