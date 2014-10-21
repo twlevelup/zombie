@@ -10,6 +10,11 @@ describe Game do
     g.start_game
   end
 
+    it "should put 4 zombies on a board" do
+    g = Game.new
+    expect(g.place_zombies).to eq( [Point.new(9,9), Point.new(9,9), Point.new(9,9), Point.new(9,9)])
+  end
+
   describe 'on commands execution' do
     before(:each) do
       @game = Game.new
