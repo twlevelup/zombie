@@ -3,11 +3,12 @@ require 'game'
 require "human"
 require "board"
 require "point"
+require "zombie"
 
 describe Game do
   it "should put 4 zombies on a board" do
     g = Game.new
-    expect(g.place_zombies).to eq( [Point.new(9,9), Point.new(9,9), Point.new(9,9), Point.new(9,9)])
+    expect(g.board.find_all(Zombie)).to eq( [Point.new(9,9), Point.new(9,9), Point.new(9,9), Point.new(9,9)])
   end
 
   describe 'on commands execution' do
@@ -31,8 +32,9 @@ describe Game do
       expect(game.board.find(game.human)).to eq Point.new(0, 0)
     end
 
-    it "should print a human's position" do
-      expect { game.exec_command('SHOW MAP') }.to output(/(0, 0)/).to_stdout
+    it "should print human's and zombies' positions" do
+      res = "Human is at: (0, 0)\nZombies are at: (9, 9), (9, 9), (9, 9), (9, 9)\n"
+      expect { game.exec_command('SHOW MAP') }.to output(res).to_stdout
     end
 
     it 'should print wrong move error' do

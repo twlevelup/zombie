@@ -1,4 +1,5 @@
-require "board"
+require_relative "board"
+require_relative "zombie"
 
 class Formatter
   attr_reader :locations
@@ -10,7 +11,7 @@ class Formatter
   def all_zombies(board)
     @board = board
     point_z = @board.find_all(Zombie)
-    p "Zombies are at: #{point_z}"
+    # p "Zombies are at: #{point_z}"
     @locations << point_z
     @locations.flatten!
   end
