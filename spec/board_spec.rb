@@ -1,9 +1,4 @@
 require "spec_helper"
-require "board"
-require "direction"
-require "point"
-require "human"
-require "zombie"
 
 describe Board do
   let(:size) { 10 }

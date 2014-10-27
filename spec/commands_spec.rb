@@ -1,6 +1,4 @@
 require "spec_helper"
-require 'commands'
-require 'command'
 
 describe Commands do
   before :each do

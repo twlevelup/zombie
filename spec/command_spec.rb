@@ -1,5 +1,4 @@
 require "spec_helper"
-require 'command'
 
 describe Command do
   describe 'on init' do

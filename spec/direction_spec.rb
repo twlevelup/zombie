@@ -1,8 +1,7 @@
 require 'spec_helper'
-require 'direction'
 
 describe Direction do
-	
+
 	it "return all directions" do
 
 		dir = [Direction::UP, Direction::DOWN, Direction::LEFT, Direction::RIGHT]

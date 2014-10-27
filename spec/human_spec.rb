@@ -1,8 +1,4 @@
 require 'spec_helper'
-require 'human'
-require "board"
-require "direction"
-require "point"
 
 describe Human do
   it "should yack on about sirs and madams" do

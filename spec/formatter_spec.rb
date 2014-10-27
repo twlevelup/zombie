@@ -1,10 +1,4 @@
 require "spec_helper"
-require "board"
-require "direction"
-require "point"
-require "human"
-require "zombie"
-require "formatter"
 
 describe Formatter do
   let(:size) { 10 }

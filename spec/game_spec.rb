@@ -1,9 +1,4 @@
 require 'spec_helper'
-require 'game'
-require "human"
-require "board"
-require "point"
-require "zombie"
 
 describe Game do
   it "should put 4 zombies on a board" do
