@@ -10,8 +10,8 @@ describe Formatter do
   let(:zombie_two_point) { Point.new(2, 3) }
 
   before do
-    @z1 = Zombie.new()
-    @z2 = Zombie.new()
+    @z1 = Zombie.new(b)
+    @z2 = Zombie.new(b)
     b.put(zombie_one_point, @z1)
     b.put(zombie_two_point, @z2)
   end

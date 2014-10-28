@@ -52,10 +52,10 @@ describe Board do
   end
 
   it 'should find all zombies' do
-    b.put(zombie_point, Zombie.new)
-    b.put(zombie_point, Zombie.new)
-    b.put(zombie_point, Zombie.new)
-    b.put(zombie_point, Zombie.new)
+    b.put(zombie_point, Zombie.new(b))
+    b.put(zombie_point, Zombie.new(b))
+    b.put(zombie_point, Zombie.new(b))
+    b.put(zombie_point, Zombie.new(b))
 
     # find all zombies
     expect(b.find_all(Zombie).count).to eq 4

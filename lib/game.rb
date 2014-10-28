@@ -22,10 +22,10 @@ class Game
   def place_zombies
     # board = Board.new(10)
     zombie_point = Point.new(@board.size-1, @board.size-1)
-    zombie1 = Zombie.new
-    zombie2 = Zombie.new
-    zombie3 = Zombie.new
-    zombie4 = Zombie.new
+    zombie1 = Zombie.new(@board)
+    zombie2 = Zombie.new(@board)
+    zombie3 = Zombie.new(@board)
+    zombie4 = Zombie.new(@board)
     @board.put(zombie_point, zombie1)
     @board.put(zombie_point, zombie2)
     @board.put(zombie_point, zombie3)
