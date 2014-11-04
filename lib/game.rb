@@ -20,7 +20,6 @@ class Game
   end
 
   def place_zombies
-    # board = Board.new(10)
     zombie_point = Point.new(@board.size-1, @board.size-1)
     zombie1 = Zombie.new(@board)
     zombie2 = Zombie.new(@board)
@@ -30,17 +29,7 @@ class Game
     @board.put(zombie_point, zombie2)
     @board.put(zombie_point, zombie3)
     @board.put(zombie_point, zombie4)
-    # show_zombie_pos(@board, zombie1, zombie2, zombie3, zombie4)
-    # @board.find_all(Zombie)
   end
-
-  # def show_zombie_pos(board, zombie1, zombie2, zombie3, zombie4)
-  #   zombie1_position = board.find(zombie1)
-  #   zombie2_position = board.find(zombie2)
-  #   zombie3_position = board.find(zombie3)
-  #   zombie4_position = board.find(zombie4)
-  #   puts "Zombies postions are: ( #{zombie1_position.x}, #{zombie1_position.y}) ( #{zombie2_position.x}, #{zombie2_position.y}) ( #{zombie3_position.x}, #{zombie3_position.y}) ( #{zombie4_position.x}, #{zombie4_position.y})"
-  # end
 
   def create_commands
     @commands = Commands.new
